@@ -1,0 +1,15 @@
+name: threatcl validate
+
+on: [push, pull_request]
+
+jobs:
+  threatcl-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        actions: actions/checkout@v4
+      - name: threatcl validate
+        uses: threatcl/threatcl-action@v0.0.1
+        with:
+          command: 'validate'
+          files: './hcl-files/*'
