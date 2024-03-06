@@ -1,0 +1,33 @@
+name: threatcl dfd
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  threatcl-dfd:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: threatcl dfd
+        uses: threatcl/threatcl-action@v0.0.1
+        with:
+          command: 'dfd'
+          files: './hcl-files/*'
+          outdir: './dfd'
+      - name: threatcl dfd dot
+        uses: threatcl/threatcl-action@v0.0.1
+        with:
+          command: 'dfd'
+          files: './hcl-files/*'
+          outdir: './dfd-dot'
+          dfd-type: 'dot'
+      - name: threatcl dfd svg
+        uses: threatcl/threatcl-action@v0.0.1
+        with:
+          command: 'dfd'
+          files: './hcl-files/*'
+          outdir: './dfd-svg'
+          dfd-type: 'svg'
