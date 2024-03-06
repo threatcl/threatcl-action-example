@@ -1,0 +1,62 @@
+name: threatcl dashboard and export
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  threatcl-dashboard-and-export:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: threatcl validate
+        uses: threatcl/threatcl-action@v0.0.1
+        with:
+          command: 'validate'
+          files: './hcl-files/*'
+      - name: threatcl dashboard
+        uses: threatcl/threatcl-action@v0.0.1
+        with:
+          command: 'dashboard'
+          files: './hcl-files/*'
+          outdir: './dashboard'
+      - name: threatcl custom dashboard
+        uses: threatcl/threatcl-action@v0.0.1
+        with:
+          command: 'dashboard'
+          files: './hcl-files/*'
+          outdir: './custom-dashboard'
+          dashboard-template: './templates/dashboard-template.tpl'
+          dashboard-filename: 'db'
+          threatmodel-template: './templates/threatmodel-template.tpl'
+      - name: threatcl custom html dashboard
+        uses: threatcl/threatcl-action@v0.0.1
+        with:
+          command: 'dashboard'
+          files: './hcl-files/*'
+          outdir: './html-dashboard'
+          dashboard-template: './templates/dashboard-template-html.tpl'
+          dashboard-filename: 'index'
+          threatmodel-template: './templates/threatmodel-template-html.tpl'
+          dashboard-html: 'true'
+      - name: threatcl export
+        uses: threatcl/threatcl-action@v0.0.1
+        with:
+          command: 'export'
+          files: './hcl-files/*'
+          export-format: 'otm'
+          export-output: './otm/otm.json'
+      - name: Commit changes
+        run: |
+          git config --global user.name "threatcl Git Action"
+          git config --global user.email "xntrik@users.noreply.github.com"
+          git add ./dashboard/*
+          git add ./html-dashboard/*
+          git add ./custom-dashboard/*
+          git add ./otm/*
+          git commit -m "Automated updated dashboard and export"
+          git push
