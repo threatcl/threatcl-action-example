@@ -43,6 +43,8 @@ jobs:
           dashboard-filename: 'index'
           threatmodel-template: './templates/threatmodel-template-html.tpl'
           dashboard-html: 'true'
+      - name: mkdir otm if not exist
+        run: mkdir -p otm
       - name: threatcl export
         uses: threatcl/threatcl-action@v0.0.1
         with:
