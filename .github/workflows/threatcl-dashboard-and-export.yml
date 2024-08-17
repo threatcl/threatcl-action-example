@@ -14,18 +14,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: threatcl validate
-        uses: threatcl/threatcl-action@v0.0.1
+        uses: threatcl/threatcl-action@v0.0.2
         with:
           command: 'validate'
           files: './hcl-files/*'
       - name: threatcl dashboard
-        uses: threatcl/threatcl-action@v0.0.1
+        uses: threatcl/threatcl-action@v0.0.2
         with:
           command: 'dashboard'
           files: './hcl-files/*'
           outdir: './dashboard'
       - name: threatcl custom dashboard
-        uses: threatcl/threatcl-action@v0.0.1
+        uses: threatcl/threatcl-action@v0.0.2
         with:
           command: 'dashboard'
           files: './hcl-files/*'
@@ -34,7 +34,7 @@ jobs:
           dashboard-filename: 'db'
           threatmodel-template: './templates/threatmodel-template.tpl'
       - name: threatcl custom html dashboard
-        uses: threatcl/threatcl-action@v0.0.1
+        uses: threatcl/threatcl-action@v0.0.2
         with:
           command: 'dashboard'
           files: './hcl-files/*'
@@ -46,7 +46,7 @@ jobs:
       - name: mkdir otm if not exist
         run: mkdir -p otm
       - name: threatcl export
-        uses: threatcl/threatcl-action@v0.0.1
+        uses: threatcl/threatcl-action@v0.0.2
         with:
           command: 'export'
           files: './hcl-files/*'
