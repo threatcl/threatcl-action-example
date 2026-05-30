@@ -10,22 +10,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: threatcl dfd
-        uses: threatcl/threatcl-action@v0.0.2
+        uses: threatcl/threatcl-action@v0.0.7
         with:
           command: 'dfd'
           files: './hcl-files/*'
           outdir: './dfd'
       - name: threatcl dfd dot
-        uses: threatcl/threatcl-action@v0.0.2
+        uses: threatcl/threatcl-action@v0.0.7
         with:
           command: 'dfd'
           files: './hcl-files/*'
           outdir: './dfd-dot'
           dfd-type: 'dot'
       - name: threatcl dfd svg
-        uses: threatcl/threatcl-action@v0.0.2
+        uses: threatcl/threatcl-action@v0.0.7
         with:
           command: 'dfd'
           files: './hcl-files/*'
