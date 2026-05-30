@@ -14,6 +14,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+      - name: Prepare output dirs
+        # The action image runs as a non-root user (uid ~100), but the
+        # checkout creates the workspace as the runner user (uid 1001).
+        # Make the output dirs world-writable so the container can write
+        # (and overwrite) files in them.
+        run: |
+          mkdir -p dashboard custom-dashboard html-dashboard otm
+          chmod -R 777 dashboard custom-dashboard html-dashboard otm
       - name: threatcl validate
         uses: threatcl/threatcl-action@v0.0.7
         with:
@@ -44,8 +52,6 @@ jobs:
           dashboard-filename: 'index'
           threatmodel-template: './templates/threatmodel-template-html.tpl'
           dashboard-html: 'true'
-      - name: mkdir otm if not exist
-        run: mkdir -p otm
       - name: threatcl export
         uses: threatcl/threatcl-action@v0.0.7
         with:

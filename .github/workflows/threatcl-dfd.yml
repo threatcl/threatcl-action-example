@@ -13,6 +13,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+      - name: Prepare output dirs
+        # The action image runs as a non-root user (uid ~100), but the
+        # checkout creates the workspace as the runner user (uid 1001).
+        # Make the output dirs world-writable so the container can write
+        # (and overwrite) files in them.
+        run: |
+          mkdir -p dfd dfd-dot dfd-svg
+          chmod -R 777 dfd dfd-dot dfd-svg
       - name: threatcl dfd
         uses: threatcl/threatcl-action@v0.0.7
         with:
