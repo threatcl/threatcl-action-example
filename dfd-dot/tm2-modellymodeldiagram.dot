@@ -1,0 +1,22 @@
+digraph  {
+	subgraph cluster_s3 {
+		color="red";fontcolor="red";label="AWS";style="dashed";
+		n6[fillcolor="#fffb9e",label="Logs",shape="cylinder",style="filled"];
+		n4[fillcolor="#9ed3ff",label="Web Server",shape="circle",style="filled"];
+		n7[fillcolor="#fffb9e",label="sqlite",shape="cylinder",style="filled"];
+		
+	}
+	subgraph cluster_s1 {
+		color="red";fontcolor="red";label="Browser";style="dashed";
+		n2[fillcolor="#9ed3ff",label="Client",shape="circle",style="filled"];
+		
+	}
+	label="Modelly model_Diagram";labelloc="t";rankdir="LR";
+	n5[fillcolor="#ffd59e",label="Google Analytics",shape="diamond",style="filled"];
+	n2->n5[label="https"];
+	n2->n4[label="https"];
+	n4->n6[label="TCP"];
+	n4->n7[label="https"];
+	n7->n4[label="https"];
+	
+}
