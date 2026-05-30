@@ -1,4 +1,4 @@
-spec_version = "0.1.6"
+spec_version = "0.2.7"
 
 threatmodel "Tower of London" {
   description = "A historic castle"
@@ -24,10 +24,12 @@ threatmodel "Tower of London" {
     uptime_dependency = "degraded"
   }
 
-  threat {
+  threat "Crown Theft" {
     description = "Someone who isn't the Queen steals the crown"
     impacts = ["Confidentiality"]
-    control = "Lots of guards"
+    control "Guards" {
+      description = "Lots of guard"
+    }
   }
 
 }
@@ -51,10 +53,12 @@ threatmodel "Fort Knox" {
     description = "Only the correct people can access the gold"
   }
 
-  threat {
+  threat "Gold Stolen" {
     description = "Someone steals the gold"
     impacts = ["Confidentiality"]
-    control = "Big walls"
+    control "Walls" {
+      description = "big walls"
+    }
   }
 
 }

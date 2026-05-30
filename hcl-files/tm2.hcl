@@ -1,19 +1,19 @@
- spec_version = "0.1.6"
+ spec_version = "0.2.7"
 
  threatmodel "Modelly model" {
    imports = ["control-library/othercontrols.hcl"]
    author = "@xntrik"
 
-   threat {
+   threat "threat1" {
      description = "threaty threat"
-     expanded_control "control name" {
+     control "control name" {
       description = import.control.control_name.description
       risk_reduction = 40
      }
      stride = ["Spoofing", "Elevation of privilege"]
    }
 
-   data_flow_diagram {
+   data_flow_diagram_v2 "Diagram" {
      external_element "Google Analytics" {}
 
      process "Client" {
