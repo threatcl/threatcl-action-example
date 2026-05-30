@@ -41,12 +41,12 @@ jobs:
           files: './hcl-files/*'
           outdir: './dfd-svg'
           dfd-type: 'svg'
-      - name: Commit changes
-        run: |
-          git config --global user.name "threatcl Git Action"
-          git config --global user.email "xntrik@users.noreply.github.com"
-          git add ./dfd/*
-          git add ./dfd-dot/*
-          git add ./dfd-svg/*
-          git diff --staged --quiet || git commit -m "Automated updated dfd"
-          git push
+      # - name: Commit changes
+      #   run: |
+      #     git config --global user.name "threatcl Git Action"
+      #     git config --global user.email "xntrik@users.noreply.github.com"
+      #     git add ./dfd/*
+      #     git add ./dfd-dot/*
+      #     git add ./dfd-svg/*
+      #     git diff --staged --quiet || git commit -m "Automated updated dfd"
+      #     git push
