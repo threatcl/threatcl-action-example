@@ -25,15 +25,23 @@ including the imperial state crown
 
 ## Threat Scenarios
 
-### Threat
+### Crown Theft
 
 Someone who isn't the Queen steals the crown
 
 > Impact Type: Confidentiality
 
-#### Legacy Control Description
+#### Controls
 
-Lots of guards
+
+##### Guards
+
+> Implemented: ❌
+
+Lots of guard
+
+|    |    |
+| -- | -- |
 
 ## Third Party Dependencies
 

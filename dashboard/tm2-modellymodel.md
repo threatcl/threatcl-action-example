@@ -2,11 +2,11 @@
 
 Author: @xntrik
 
-![Diagram](tm2-modellymodellegacydfd.png "Diagram")
+![Diagram](tm2-modellymodeldiagram.png "Diagram")
 
 ## Threat Scenarios
 
-### Threat
+### threat1
 
 threaty threat
 

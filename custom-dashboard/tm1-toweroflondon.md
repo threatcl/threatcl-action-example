@@ -32,10 +32,6 @@ Someone who isn't the Queen steals the crown
 
 > Impact Type: Confidentiality
 
-
-#### Control
-
-Lots of guards
 ## Third Party Dependencies
 
 ### community watch

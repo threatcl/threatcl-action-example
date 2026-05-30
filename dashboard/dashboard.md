@@ -1,4 +1,4 @@
-# HCLTM Dashboard
+# Threatcl Dashboard
 
 A dashboard of threat models.
 

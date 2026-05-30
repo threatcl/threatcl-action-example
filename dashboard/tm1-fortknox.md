@@ -25,13 +25,21 @@ Lots of gold
 
 ## Threat Scenarios
 
-### Threat
+### Gold Stolen
 
 Someone steals the gold
 
 > Impact Type: Confidentiality
 
-#### Legacy Control Description
+#### Controls
 
-Big walls
+
+##### Walls
+
+> Implemented: ❌
+
+big walls
+
+|    |    |
+| -- | -- |
 
